@@ -4,11 +4,11 @@ import { range } from "../../utils";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import Guess from "../Guess/Guess";
 //adding answers prop
-function GuessResults({ guesses, answer }) {
+function GuessResults({ validatedGuesses, answer }) {
   return (
     <div className="guess-results">
       {range(NUM_OF_GUESSES_ALLOWED).map((num) => (
-        <Guess key={num} value={guesses[num]} answer={answer}/>
+        <Guess key={num} value={validatedGuesses[num]} answer={answer}/>
       ))}
     </div>
   );
