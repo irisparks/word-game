@@ -36,22 +36,28 @@ function Game() {
     const newAnswer = sample(WORDS);
     setAnswer(newAnswer);
     setGuesses([]);
-    setGameStatus('running')
+    setGameStatus("running");
   }
 
   const validatedGuesses = guesses.map((guess) => checkGuess(guess, answer));
 
   return (
     <>
-      {gameStatus}
-      <GuessResults answer={answer} validatedGuesses={validatedGuesses}/>
+      <GuessResults answer={answer} validatedGuesses={validatedGuesses} />
       <GuessInput
         gameStatus={gameStatus}
         handleSubmitGuess={handleSubmitGuess}
       />
       <Keyboard validatedGuesses={validatedGuesses} />
-      {gameStatus === "won" && <WonBanner numOfGuesses={guesses.length} handleRestart={handleRestart}/>}
-      {gameStatus === "lost" && <LostBanner answer={answer} handleRestart={handleRestart} />}
+      {gameStatus === "won" && (
+        <WonBanner
+          numOfGuesses={guesses.length}
+          handleRestart={handleRestart}
+        />
+      )}
+      {gameStatus === "lost" && (
+        <LostBanner answer={answer} handleRestart={handleRestart} />
+      )}
     </>
   );
 }
