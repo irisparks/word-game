@@ -1,20 +1,18 @@
 import React from "react";
-import Banner from "../Banner/Banner";
-
-function GuessInput({handleSubmitGuess, gameStatus}) {
-  const [tentativeGuess, setTentativeGuess] = React.useState('');
+function GuessInput({ handleSubmitGuess, gameStatus }) {
+  const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    handleSubmitGuess(tentativeGuess)
-    setTentativeGuess('');
+    handleSubmitGuess(tentativeGuess);
+    setTentativeGuess("");
   }
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         required
-        disabled={gameStatus !== 'running'}
+        disabled={gameStatus !== "running"}
         id="guess-input"
         minLength={5}
         maxLength={5}
@@ -27,9 +25,6 @@ function GuessInput({handleSubmitGuess, gameStatus}) {
         }}
         validation={{ required: { valid: true } }}
       ></input>
-      <p>
-        <strong>Current Value:</strong> {tentativeGuess || "(empty)"}
-      </p>
     </form>
   );
 }
