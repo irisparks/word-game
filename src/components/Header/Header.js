@@ -3,7 +3,7 @@ import React from 'react';
 function Header() {
   return (
     <header>
-      <a id="side" href="www.irisparks.com" className="btn btn-primary">{`<Iris />`}</a>
+      <a id="side" href="https://irisparks.com" className="btn btn-primary">{`<Iris />`}</a>
       <h1>Word Game</h1>
     </header>
   );
